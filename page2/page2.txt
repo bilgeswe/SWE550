@@ -1,0 +1,76 @@
+Testing Types
+
+Learn the differences between Cypress end-to-end and component tests, the benefits and considerations for each type of test, and common scenarios for each type of test.
+
+# Testing Types
+
+What you'll learn:
+- The differences between end-to-end and component tests
+- The benefits and considerations for each type of test
+- Common scenarios for each type of test
+
+## End-to-End or Component Tests?
+Cypress offers two main types of tests: end-to-end (E2E) and component tests. Each has its own benefits and considerations, and most applications use a combination of both.
+
+Cypress is also adaptable to other types of testing, such as API, visual, unit, and accessibility testing, often with the help of plugins.
+
+## What is E2E Testing?
+- Tests the app from the browser through to the backend and third-party services
+- Simulates real user interactions in a real browser
+- Can be written by developers, QA, or SDETs
+- Great for verifying the app as a whole, but can be more complex to set up and maintain
+
+### Benefits of E2E tests:
+- Ensure your app is functioning as a cohesive whole
+- Tests match the user experience
+- Can be used for integration testing
+
+### Considerations for E2E tests:
+- More difficult to set up, run, and maintain
+- Requires test infrastructure in CI
+- Some scenarios require more setup
+
+### Common scenarios for E2E tests:
+- Validating critical workflows (authentication, purchasing)
+- Ensuring data is persisted and displayed across screens
+- Smoke tests and system checks before deployment
+
+**E2E Initialization Command:**
+See: examples/e2e_initialization.js
+
+## What is Component Testing?
+- Tests individual components in isolation
+- Components are mounted and tested independently
+- Typically written by developers alongside component code
+- Fast, reliable, and easy to set up specific scenarios
+
+### Benefits of component tests:
+- Easier to test components in isolation
+- Fast and reliable
+- Easy to set up specific scenarios
+- No external system dependencies
+
+### Considerations for component tests:
+- Do not ensure overall app quality
+- Do not call external APIs/services
+- Usually written by developers
+
+### Common scenarios for component tests:
+- Testing a date picker for various scenarios
+- Verifying form logic and conditional sections
+- Testing design system components
+- Testing logic not tied to a component (unit tests)
+
+**Component Initialization Command:**
+See: examples/component_initialization.js
+
+## Testing Type Comparison
+
+| Attributes             |         E2E         |      Component      |
+|-----------------------|:-------------------:|:------------------:|
+| What's Tested          | All app layers      | Individual component|
+| Characteristics        | Comprehensive, slower, more susceptible to flake | Specialized, quick, reliable |
+| Used For               | Verifying app works as a whole | Testing functionality of individual component |
+| Written By             | Developers, QA, SDETs | Developers, Designers |
+| CI Infrastructure      | Often requires complex setup | None needed |
+| Initialization Command | See: examples/e2e_initialization.js | See: examples/component_initialization.js |

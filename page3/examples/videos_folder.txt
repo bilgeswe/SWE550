@@ -1,0 +1,3 @@
+/cypress
+  /videos
+    - app.cy.js.mp4 

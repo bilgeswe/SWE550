@@ -1,0 +1,81 @@
+Interacting with Elements
+
+Learn how Cypress determines if an element is actionable, how to debug when elements are not actionable, and how to ignore Cypress' actionability checks.
+
+# Interacting with Elements
+
+What you'll learn:
+- How Cypress determines if an element is actionable
+- How to debug when elements are not actionable
+- How to ignore Cypress' actionability checks
+
+## Actionability
+Cypress provides several commands for interacting with the DOM:
+- .click()
+- .dblclick()
+- .rightclick()
+- .type()
+- .clear()
+- .check()
+- .uncheck()
+- .select()
+- .trigger()
+- .selectFile()
+
+### Checks and Actions Performed
+- Scroll the element into view
+- Ensure the element is not hidden
+- Ensure the element is not disabled
+- Ensure the element is not detached
+- Ensure the element is not readonly
+- Ensure the element is not animating
+- Ensure the element is not covered
+- Scroll the page if still covered by an element with fixed position
+- Fire the event at the desired coordinates
+
+### Visibility
+An element is considered hidden if:
+- Its width or height is 0
+- Its CSS property (or ancestors) is visibility: hidden
+- Its CSS property (or ancestors) is display: none
+- Its CSS property is position: fixed and it's offscreen or covered up
+- Any of its ancestors hides overflow and meets specific conditions
+
+### Disability
+Cypress checks whether the disabled property is true on form control elements.
+
+### Detached
+Cypress checks whether an element is still within the document of the application under test.
+
+### Readonly
+Cypress checks whether an element's readonly property is set during .type().
+
+### Animations
+Cypress automatically determines if an element is animating and waits until it stops.
+
+### Covering
+Cypress ensures that the element isn't covered by a parent element.
+
+### Scrolling
+Before interacting with an element, Cypress will always scroll it into view.
+
+### Coordinates
+Cypress fires events at the center of the element by default, but allows changing the position.
+
+Example: examples/click_coordinates.js
+
+## Debugging
+When elements are not considered actionable, you can use debugging tools:
+
+1. Use the Command Log to hover over commands
+2. Use debugger statements or .debug() command
+3. Bind to Events that Cypress fires
+
+Example: examples/debug_example.js
+
+## Forcing
+You can bypass actionability checks by using { force: true }:
+
+Example: examples/force_click.js
+
+Note: Force does not override actionability checks for disabled select options. 

@@ -1,0 +1,60 @@
+Retry-ability
+
+Understand how Cypress retries commands, queries, and assertions to help you write faster tests with fewer run-time surprises.
+
+# Retry-ability
+
+What you'll learn:
+- The difference between commands, queries, and assertions in Cypress
+- How Cypress retries multiple assertions
+- How to increase the time Cypress retries commands
+- How Cypress retries queries with examples
+
+## Commands, Queries and Assertions
+While all methods you chain off of cy in your Cypress tests are commands, they operate by different rules:
+- Queries link up, retrying the entire chain together
+- Assertions are a type of query that's specially displayed in the command log
+- Non-queries only execute once
+
+See example: examples/commands_queries_assertions.js
+
+## Multiple Assertions
+Queries and assertions are always executed in order, and always retry 'from the top'. If you have multiple assertions, Cypress will retry until each passes before moving on to the next one.
+
+See example: examples/multiple_assertions.js
+
+## Implicit Assertions
+Often a Cypress command has built-in assertions that will cause the command to be retried until they pass.
+
+See example: examples/implicit_assertions.js
+
+## Timeouts
+By default each command that retries does so for up to 4 seconds - the defaultCommandTimeout setting.
+
+### Increase time to retry
+You can change the default timeout for all commands or pass the individual command's { timeout: ms } option.
+
+See example: examples/timeouts.js
+
+## Only queries are retried
+Any command that isn't a query, such as .click(), will not "chain together" to form the subject for later commands the way queries do.
+
+### Actions should be at the end of chains, not the middle
+See example: examples/action_chains.js
+
+### Stub Assertions
+When working with stubs, it's important to use aliases and proper assertion patterns.
+
+See example: examples/stub_assertions.js
+
+## Use .should() with a callback
+If you are using commands, but need to retry the entire chain, consider rewriting the commands into a .should(callbackFn).
+
+See example: examples/should_callback.js
+
+## Best Practices
+- Don't chain actions after other actions
+- Use aliases to make patterns less intrusive
+- Use .should(callbackFn) when you need to retry the entire chain
+- Be mindful of timeouts and retry behavior
+- Use proper assertion patterns with stubs 

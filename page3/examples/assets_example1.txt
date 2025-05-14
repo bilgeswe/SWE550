@@ -1,0 +1,8 @@
+Spec file found
+  - cypress/e2e/path/to/file/one.cy.js
+Common ancestor paths (calculated at runtime)
+  - cypress/e2e/path/to/file
+Generated screenshot file
+  - cypress/screenshots/one.cy.js/your-screenshot.png
+Generated video file
+  - cypress/videos/one.cy.js.mp4 

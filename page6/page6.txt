@@ -1,0 +1,52 @@
+Test Isolation
+
+Learn how Cypress ensures test isolation and how to configure test isolation in end-to-end and component testing.
+
+# Test Isolation
+
+What you'll learn:
+- How Cypress ensures test isolation
+- How to configure test isolation in end-to-end and component testing
+- The trade-offs of enabling or disabling test isolation
+
+## Best Practice
+Tests should always be able to be run independently from one another and still pass.
+
+## Test Isolation in End-to-End Testing
+Cypress supports enabling or disabling test isolation in end-to-end testing.
+
+### Test Isolation Enabled
+When test isolation is enabled, Cypress resets the browser context before each test by:
+- Clearing the DOM state by visiting about:blank
+- Clearing cookies in all domains
+- Clearing localStorage in all domains
+- Clearing sessionStorage in all domains
+
+See example: examples/e2e_isolation_enabled.js
+
+### Test Isolation Disabled
+When test isolation is disabled, Cypress will not alter the browser context before the test starts. The page does not clear between tests and cookies, local storage and session storage will be available across tests in that suite.
+
+See example: examples/e2e_isolation_disabled.js
+
+## Test Isolation in Component Testing
+Cypress does not support configuring the test isolation behavior in component testing. When running component tests, Cypress always resets the browser context before each test.
+
+See example: examples/component_test_isolation.js
+
+## Session Behavior
+The cy.session() command behavior changes based on test isolation settings:
+
+### With Test Isolation
+See example: examples/session_with_isolation.js
+
+### Without Test Isolation
+See example: examples/session_without_isolation.js
+
+## Test Isolation Trade-offs
+- Disabling test isolation may improve performance
+- Can cause state to "leak" between tests
+- May make later tests dependent on earlier tests
+- Can cause misleading test failures
+
+Best Practice: Add .only() to your test and verify it can run successfully without the test before it. 

@@ -1,0 +1,133 @@
+Best Practices
+
+Learn about best practices for organizing tests, selecting elements, and controlling state in Cypress.
+
+# Best Practices
+
+What you'll learn:
+- Best practices on how to organize tests, log in, and control state
+- Strategies for selecting elements and assigning return values
+- Best practices on visiting external sites
+- How to avoid relying on the state of previous tests
+- When to use after or afterEach hooks
+- How to avoid unnecessary waiting in your tests
+- Setting a global base URL for your tests to save time
+
+## Organizing Tests, Logging In, Controlling State
+
+### Anti-Patterns
+- Sharing page objects
+- Using UI to log in
+- Not taking shortcuts
+
+### Best Practices
+- Test specs in isolation
+- Programmatically log into your application
+- Take control of your application's state
+
+## Selecting Elements
+
+### Anti-Patterns
+- Using highly brittle selectors that are subject to change
+- Targeting elements based on CSS attributes (id, class, tag)
+- Targeting elements that may change their textContent
+
+### Best Practices
+- Use data-* attributes to provide context to your selectors
+- Isolate selectors from CSS or JS changes
+- Add data-* attributes to make targeting elements easier
+
+### Selector Priority
+1. data-cy (Best)
+2. data-test
+3. data-testid
+4. name attribute
+5. id attribute
+6. class attribute
+7. tag name (Worst)
+
+## Assigning Return Values
+
+### Anti-Patterns
+- Trying to assign the return value of Commands with const, let, or var
+
+### Best Practices
+- Use aliases and closures to access and store what Commands yield
+- Avoid using const, let, or var in Cypress tests
+- Use proper command chaining
+
+## Visiting External Sites
+
+### Anti-Patterns
+- Trying to visit or interact with sites you do not control
+- Testing social logins through popular media providers
+
+### Best Practices
+- Only test websites that you control
+- Use cy.request() to talk to 3rd party servers via their APIs
+- Cache results via cy.session() to avoid repeat visits
+
+## Test Independence
+
+### Anti-Patterns
+- Coupling multiple tests together
+- Having tests rely on the state of previous tests
+
+### Best Practices
+- Tests should always be able to run independently
+- Move repeated code to before or beforeEach hooks
+- Combine multiple tests into one larger test when appropriate
+
+## Using after or afterEach Hooks
+
+### Anti-Patterns
+- Using after or afterEach hooks to clean up state
+- Logging out after each test
+
+### Best Practices
+- Clean up state before tests run
+- Use before or beforeEach hooks for state reset
+- Consider if state reset is necessary
+
+## Unnecessary Waiting
+
+### Anti-Patterns
+- Waiting for arbitrary time periods using cy.wait(Number)
+- Unnecessary waits after cy.request(), cy.visit(), or cy.get()
+
+### Best Practices
+- Use route aliases or assertions to guard Cypress
+- Wait explicitly for specific conditions
+- Let Cypress handle retrying and waiting automatically
+
+## Web Servers
+
+### Anti-Patterns
+- Trying to start a web server from within Cypress scripts
+- Using cy.exec() or cy.task() to start servers
+
+### Best Practices
+- Start a web server prior to running Cypress
+- Handle server management outside of Cypress
+- Use proper CI/CD practices for server management
+
+## Setting a Global baseUrl
+
+### Anti-Patterns
+- Using cy.visit() without setting a baseUrl
+- Hard-coding fully qualified domain names
+
+### Best Practices
+- Set a baseUrl in your Cypress configuration
+- Use relative URLs in your tests
+- Let Cypress handle URL prefixing
+
+## Best Practices Summary
+- Use data-* attributes for reliable selectors
+- Keep tests independent and isolated
+- Clean up state before tests, not after
+- Avoid unnecessary waiting
+- Start servers before running tests
+- Set a global baseUrl
+- Use proper command chaining
+- Follow Cypress's built-in retry-ability 

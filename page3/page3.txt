@@ -1,0 +1,55 @@
+Writing and Organizing Tests
+
+Learn how to organize your tests in Cypress and the types of supported files, how to write tests in Cypress including hooks, exclusions, and configurations.
+
+# Writing and Organizing Tests
+
+What you'll learn:
+- How to organize your tests in Cypress and the types of supported files
+- How to write tests in Cypress including hooks, exclusions, and configurations
+- Test statuses and how to interpret them
+- What files are automatically watched while writing Cypress tests
+
+## Folder structure
+Cypress scaffolds a default folder structure for new projects. See examples:
+- JavaScript: examples/folder_structure_js.txt
+- TypeScript: examples/folder_structure_ts.txt
+
+### Asset Folders
+- Downloads: examples/downloads_folder.txt
+- Screenshots: examples/screenshots_folder.txt
+- Videos: examples/videos_folder.txt
+- Asset file path examples: examples/assets_example1.txt, examples/assets_example2.txt
+
+## Support and Plugins Files
+- Global hook example: examples/global_hook.js
+
+## Writing tests
+Cypress tests use Mocha and Chai. See test structure example: examples/test_structure.js
+
+### Hooks
+See: examples/hooks.js
+
+### Excluding and Including Tests
+See: examples/exclude_include.js
+
+### Test Isolation
+See: examples/test_isolation.js
+
+### Pending Tests
+See: examples/pending_tests.js
+
+### Suite Configuration
+See: examples/suite_config.js
+
+### Single Test Configuration
+See: examples/single_test_config.js
+
+### Dynamically Generate Tests
+See: examples/dynamic_tests.js
+
+### Assertion Styles
+See: examples/assertion_styles.js
+
+### Running with Debug Logs
+See: examples/run_with_debug.sh 

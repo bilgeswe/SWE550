@@ -1,0 +1,75 @@
+Open Mode
+
+Learn about the different sections of the Cypress app in open mode, the information surfaced in the app's Command Log, how to use the Selector Playground to find unique selectors, and debugging tools available in the app in open mode.
+
+# Open Mode
+
+What you'll learn:
+- The different sections of the Cypress app in open mode
+- The information surfaced in the app's Command Log
+- How to use the Selector Playground to find unique selectors
+- Debugging tools available in the app in open mode
+
+## Launchpad
+The Launchpad is your portal to Cypress, helping with onboarding, choosing a testing type and launching a browser. Once you get comfortable with Cypress you might find you don't need the Launchpad anymore.
+
+## Specs
+On choosing your browser in the Launchpad, you'll be presented with a list of your specs, their names, locations, and information about your latest recorded runs.
+
+### Spec Information
+- Last updated: When the code of this spec was last updated
+- Latest runs: Last time the spec was run and last four returned statuses
+- Average duration: Time taken to run the entire spec file
+- Flake annotation: Indicates if tests in the spec have been flaky
+
+## Test Runner
+At the core of the app is the Test Runner itself. Cypress runs tests interactively, allowing you to see commands as they execute while also viewing the Application or Component Under Test.
+
+### Command Log
+The left-hand side of the Test Runner is a visual representation of your test suite. Each test block is properly nested and each test displays every Cypress command executed.
+
+Features:
+- Open files in your IDE
+- Time traveling through test states
+- Pinning snapshots
+- Viewing page events
+- Instrument panel for routes, stubs, and spies
+
+### Preview Pane
+The right-hand side of the Test Runner displays either:
+- Application Under Test (AUT) for E2E Testing
+- Component Under Test (CUT) for Component Testing
+
+## Selector Playground
+The Selector Playground is an interactive feature that helps you:
+- Determine a unique selector for an element
+- See what elements match a given selector
+- See what element matches a string of text
+
+Features:
+- Automatic unique selector calculation
+- Best practices for selector selection
+- Interactive element highlighting
+- Selector editing and testing
+- Contains text matching
+
+## Keyboard Shortcuts
+Common keyboard shortcuts:
+- `r`: Rerun tests
+- `s`: Stop tests
+- `f`: Bring focus to 'specs' window
+
+## Debugging Tools
+Cypress provides several debugging tools:
+- Detailed error information
+- Console output for commands
+- Special commands like cy.pause() and cy.debug()
+- Interactive command stepping
+- Element inspection
+
+## Best Practices
+- Use data-* attributes for reliable selectors
+- Avoid dynamic IDs and class names
+- Keep selectors resilient to CSS changes
+- Use the Selector Playground for finding unique selectors
+- Leverage keyboard shortcuts for efficiency 

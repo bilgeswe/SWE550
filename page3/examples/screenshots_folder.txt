@@ -1,0 +1,4 @@
+/cypress
+  /screenshots
+    /app.cy.js
+      - Navigates to main menu (failures).png 
